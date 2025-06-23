@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>🔗 URL Shortener</h1>
+  <input [(ngModel)]="originalUrl" placeholder="Enter your long URL..." class="input-box" />
+  <button (click)="shortenUrl()" class="shorten-button">Shorten</button>
+
+  <div *ngIf="shortUrl" class="result">
+    <p>Shortened URL:</p>
+    <a [href]="shortUrl" target="_blank">{{ shortUrl }}</a>
+  </div>
+</div>
