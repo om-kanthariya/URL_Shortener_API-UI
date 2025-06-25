@@ -26,10 +26,11 @@ public class UrlShortenerController {
     }
 
     @GetMapping("/{shortCode}")
-    public ResponseEntity<Void> redirect(@PathVariable String shortCode, HttpServletResponse response) throws IOException {
+    public ResponseEntity<String> redirect(@PathVariable String shortCode, HttpServletResponse response) throws IOException {
         String originalUrl = service.getOriginalUrl(shortCode);
-        response.sendRedirect(originalUrl);
-        return ResponseEntity.status(HttpStatus.FOUND).build();
+//        response.sendRedirect(originalUrl);
+        return ResponseEntity.ok(originalUrl);
     }
+
 
 }
